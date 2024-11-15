@@ -1,33 +1,67 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Helmet } from 'react-helmet'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TypeWriter from "typewriter-effect"
+import Navbar from './Navbar.jsx'
+import Employment from './Employment.jsx'
+import Qualify from './Qualify.jsx'
+import Footer from './Footer.jsx'
 import './App.css'
+import computerImage from './assets/images/logos/old-new.png'
+import iceCreamImage from './assets/images/logos/ice-cream-solo.png'
+import myLogo from './assets/images/logos/ian-logo-white.png'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Navbar />
+      <div className='body-section'>
+          <div className="mobile-brand">
+            <img src={myLogo} />
+          </div>
+        <div className='App'>
+          <div className="container">
+             <div className='hero-contain'> 
+              <p>I am
+                <TypeWriter options={{
+                  strings: ['a web developer', 'an artist', 'a freelancer', 'a CSS Addict'],
+                  autoStart: true,
+                  loop: true,
+                  cursor: '_',
+                }} />
+              </p>
+              <div className='headline-contain'>
+                <p className='tagline'>
+                  From art school to a keyboard near you!
+                </p>
+                <button className='contact'>
+                  Contact Me
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='imager'>
+          <img className='bigImage' src={computerImage} />
+        </div>
+        <div className='intro' id='who'>
+          <p className="body-text">
+            Hello, My name is Ian and I am a Frontend developer with 6 years of experience. 
+            <br/>
+          </p>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Employment />
+      <section className='new-section'>
+        <div className='container'>
+          <p>
+            I am comfortable working in the UI/UX/Web design sphere as well as the development space. I have a wealth of front end experience as well as a degree in Graphic Design.
+          </p>
+          <img src={iceCreamImage} />
+          </div>
+      </section>
+      <Qualify />
+      <Footer />
     </>
   )
 }
